@@ -112,7 +112,7 @@ void loop() {
     }
     
     // LED Logic
-    if (led.addressFound) {    /se encontra endereço do LED
+    if (led.addressFound) {    //se encontra endereço do LED
       if (led.input_array[0] == "i" || led.input_array[0] == "r") {  //se o input for do tipo imediato (i)ou recorrente (r)
         SerialUSB.println("Saving LED Setpoints");
         for (int n = 1; n < num_vials+1; n++) {   //realiza uma ação para cada um dos vials
