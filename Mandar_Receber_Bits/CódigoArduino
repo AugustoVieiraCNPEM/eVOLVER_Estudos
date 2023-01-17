@@ -1,0 +1,21 @@
+#include <evolver_si.h>
+#include <Tlc5940.h>
+
+void setup()
+{
+
+  //Tlc.init(LEFT_PWM,4095); // initialise TLC5940 and set all channels off
+  SerialUSB.begin(9600);//começa serial USB (comunicação com o monitor serial)
+  Serial1.begin(9600);
+  while (!Serial1); 
+  pinMode(12, OUTPUT);
+  digitalWrite(12, LOW); //Enquanto não houver input do Monitor serial, não emite nada;
+  char  buf[50];
+}
+void loop() {
+  
+  while (Serial1.available()){  //Serial1 é o sinal vindo da RPI
+  char inputChar = Serial1.read();
+  SerialUSB.println(inputChar);  //SerialUSB vai para o monitor serial
+  }
+  }
